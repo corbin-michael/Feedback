@@ -1,0 +1,63 @@
+/******
+COLORS
+******/
+$primary_color: #343232;
+$secondary_color: #63a2a4;
+$text_color: rgb(43, 43, 43);
+$danger: rgb(251, 93, 93);
+$positive: rgb(59, 193, 92);
+$white: #fff;
+
+body {
+   background: #f8f8f8;
+}
+
+
+/******
+FONTS
+******/
+$font_family: 'Source Sans Pro', sans-serif;
+$font_header_weight: 400;
+$font_body_weight: 300;
+
+#app {
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+   font-family: $font_family;
+   font-weight: $font_header_weight;
+   color: $text_color;
+}
+p, li, span, label, input, button, i {
+   font-family: $font_family;
+   font-weight: $font_body_weight;
+   color: $text_color;
+}
+a {
+   color: inherit;
+   text-decoration: none;
+   &:hover {
+      color: inherit;
+   }
+}
+
+
+/******
+BUTTONS
+******/
+
+
+
+/******
+PAGE
+******/
+.page_title {
+   margin-top: 50px;
+   text-align: center;
+
+   .title {
+      font-size: 32px;
+   }
+}

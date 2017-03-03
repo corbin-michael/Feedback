@@ -1,0 +1,58 @@
+<div class="container">
+   <div class="page_title">
+      <h2 class="title">Carbonhouse</h2>
+   </div>
+
+   <div class="row">
+      <div class="col s6">
+         <h3>{{title}}</h3>
+      </div>
+      <div class="col s6">
+         <ul class="edit_btns valign">
+            <li>
+               <button ng-click="clientModal()" id="add_client_btn" class="waves-effect waves-light btn">
+                  <i class="material-icons">add</i>
+               </button>
+               <button ng-click="edit()" class="waves-effect waves-light btn">
+                   <i class="material-icons" ng-if="showDelete == false">delete_forever</i>
+                   <span ng-if="showDelete == true">Done Deleting</span>
+               </button>
+            </li>
+         </ul>
+      </div>
+   </div>
+
+   <div class="form_modal" ng-show="showModal">
+        <form ng-submit="addClient()">
+            <p class="waves-effect waves-light btn" ng-click="clientModal()">
+                <i class="material-icons">close</i>
+            </p>
+            <h3>Add Client</h3>
+            <div class="input-field">
+                <input type="text" id="new_client" ng-model="newClient.name" />
+                <label for="new_client">Client Name</label>
+            </div>
+            <button type="submit" class="waves-effect waves-light btn">Add</button>
+        </form>
+   </div>
+
+   <div id="search_wrap">
+      <div class="input-field">
+          <input type="text" id="search_client" ng-model="searchWord" />
+         <label for="search_client">Search Client</label>
+      </div>
+   </div>
+
+
+   <ul id="clients">
+      <li class="client" ng-repeat="client in clients | filter:searchWord">
+        <a class="border" ng-href="#/client/{{client.$id}}">
+            <span class="client_name">{{client.name}}</span>
+        </a>
+        <button class="wave-effect wave-light btn" ng-click="removeClient(client)" ng-show="showDelete">
+            <i class="material-icons">delete_forever</i>
+        </button>
+      </li>
+   </ul>
+
+</div>

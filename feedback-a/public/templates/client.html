@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="page_title">
+        <h2 class="title">{{clientName}}</h2>
+        <h5 class="form-title">Feedback Form</h5>
+    </div>
+
+    <div class="section-form">
+      <form class="col s12" ng-submit="preventSubmit($event)">
+
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="section-title" type="text" ng-model="section_title">
+            <label for="section-title">Section Title</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="issue" type="text" ng-model="issue" ng-keypress="($event.which === 13) ? addTempItem() : null">
+            <label for="issue">Add Issue</label>
+          </div>
+        </div>
+
+        <ul class="collection with-header" ng-if="tempIssueList.length > 0 || section_title != ''">
+          <li class="collection-header">
+            <h5>{{section_title}}</h5>
+          </li>
+          <li class="collection-item" ng-repeat="(key, issue) in tempIssueList">
+            <div>
+              {{issue}}
+              <span class="secondary-content" ng-click="removeTempItem(key)">
+                <i class="material-icons">delete</i>
+              </span>
+            </div>
+          </li>
+        </ul>
+
+        <div class="row">
+          <div class="col s12">
+            <p class="waves-effect btn" ng-click="addTempItem()">add issue</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s12">
+            <button type="button" class="waves-effect btn submit-issue-btn"  ng-click="addIssue()">Submit Section</button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+
+    <ul class="collection with-header" ng-repeat="(key, issue) in issueList | orderBy: '-date'">
+      <pre>
+        {{issue}}
+      </pre>
+      <li class="collection-header">
+        <h5>{{issue.sectionTitle}}</h5>
+        <button ng-click="deleteSection(issue)">Delete</button>
+      </li>
+      <li class="collection-item" ng-repeat="(key, item) in issue.issues">
+        <p>Key: {{key}}</p>
+        <p>Item: {{item}}</p>
+      </li>
+    </ul>
+
+</div>

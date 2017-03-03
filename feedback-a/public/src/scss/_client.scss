@@ -1,0 +1,44 @@
+.form-title {
+  text-align: left;
+}
+
+.client_form {
+    fieldset {
+        margin-bottom: 25px;
+    }
+
+    &_title {
+        text-align: center;
+        font-size: 18px;
+    }
+
+    [type="checkbox"]+label {
+        padding-left: 22px;
+        line-height: 22px;
+    }
+
+}
+
+.submit-issue-btn {
+  width: 100%;
+}
+
+.form_section_title {
+    font-size: 17px;
+    margin-top: 5px;
+    margin-bottom: 0;
+    padding-left: 10px;
+    background-color: $secondary_color;
+    color: #fff;
+}
+
+.checkbox_list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    border-left: 1px solid #d94f0b;
+    border-right: 1px solid #d94f0b;
+    border-bottom: 1px solid #d94f0b;
+    padding: 15px 0;
+}
